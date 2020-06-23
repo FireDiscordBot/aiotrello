@@ -55,7 +55,7 @@ class Trello:
             await self.sync(card_limit=card_limit)
 
         if callable(a):
-            for board in await self.get_boards(card_limit):
+            async for board in self.get_boards(card_limit):
                 if a(board):
                     return board
         else:
